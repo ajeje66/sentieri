@@ -527,7 +527,7 @@ const gpsControl = L.control({ position: "topleft" });
 gpsControl.onAdd = function () {
     const button = L.DomUtil.create("button", "gps-button");
     button.type = "button";
-    button.textContent = "📍 La mia posizione";
+    button.textContent = "📍";
     button.title = "Attiva o disattiva la posizione GPS";
     button.setAttribute("aria-label", "Attiva o disattiva il GPS");
 
@@ -537,7 +537,7 @@ gpsControl.onAdd = function () {
         if (gpsWatchId !== null) {
             navigator.geolocation.clearWatch(gpsWatchId);
             gpsWatchId = null;
-            button.textContent = "📍 La mia posizione";
+            button.textContent = "📍";
             return;
         }
 
@@ -598,7 +598,7 @@ gpsControl.onAdd = function () {
                     gpsWatchId = null;
                 }
 
-                button.textContent = "📍 La mia posizione";
+                button.textContent = "📍 ";
             },
             {
                 enableHighAccuracy: true,
