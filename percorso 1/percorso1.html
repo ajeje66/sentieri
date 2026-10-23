@@ -89,6 +89,28 @@ canvas {
 .leaflet-container{
 	touch-action: pan-y;
 }
+
+.gps-button {
+    background: white;
+    color: #1B4332;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.gps-button:hover {
+    background: #EAF7F1;
+}
+
+.gps-button:focus-visible {
+    outline: 2px solid #40916C;
+    outline-offset: 2px;
+}
+
 </style>
 </head>
 
@@ -493,6 +515,104 @@ map.on('zoomend', function() {
   });
 
 });
+
+let gpsMarker = null;
+let gpsAccuracy = null;
+let gpsWatchId = null;
+let firstGpsFix = true;
+
+// Crea un pulsante nei controlli della mappa
+const gpsControl = L.control({ position: "topleft" });
+
+gpsControl.onAdd = function () {
+    const button = L.DomUtil.create("button", "gps-button");
+    button.type = "button";
+    button.textContent = "📍 La mia posizione";
+    button.title = "Attiva o disattiva la posizione GPS";
+    button.setAttribute("aria-label", "Attiva o disattiva il GPS");
+
+    L.DomEvent.disableClickPropagation(button);
+
+    L.DomEvent.on(button, "click", function () {
+        if (gpsWatchId !== null) {
+            navigator.geolocation.clearWatch(gpsWatchId);
+            gpsWatchId = null;
+            button.textContent = "📍 La mia posizione";
+            return;
+        }
+
+        if (!("geolocation" in navigator)) {
+            alert("Il tuo browser non supporta la geolocalizzazione.");
+            return;
+        }
+
+        button.textContent = "⏳ Ricerca GPS...";
+
+        gpsWatchId = navigator.geolocation.watchPosition(
+            function (position) {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+                const accuracy = position.coords.accuracy;
+                const pos = [lat, lng];
+
+                if (!gpsMarker) {
+                    gpsMarker = L.marker(pos)
+                        .addTo(map)
+                        .bindPopup("📍 Ti trovi qui");
+                } else {
+                    gpsMarker.setLatLng(pos);
+                }
+
+                if (!gpsAccuracy) {
+                    gpsAccuracy = L.circle(pos, {
+                        radius: accuracy,
+                        color: "#2D6A4F",
+                        fillColor: "#40916C",
+                        fillOpacity: 0.15,
+                        weight: 2
+                    }).addTo(map);
+                } else {
+                    gpsAccuracy.setLatLng(pos);
+                    gpsAccuracy.setRadius(accuracy);
+                }
+
+                // Centra la mappa soltanto al primo rilevamento
+                if (firstGpsFix) {
+                    map.setView(pos, 16);
+                    firstGpsFix = false;
+                }
+
+                button.textContent = "📍 GPS attivo · Disattiva";
+            },
+            function (error) {
+                const messages = {
+                    1: "Devi autorizzare l'accesso alla posizione.",
+                    2: "Posizione GPS non disponibile.",
+                    3: "Tempo scaduto durante la ricerca GPS."
+                };
+
+                alert(messages[error.code] || "Errore nel rilevamento GPS.");
+
+                if (gpsWatchId !== null) {
+                    navigator.geolocation.clearWatch(gpsWatchId);
+                    gpsWatchId = null;
+                }
+
+                button.textContent = "📍 La mia posizione";
+            },
+            {
+                enableHighAccuracy: true,
+                maximumAge: 5000,
+                timeout: 20000
+            }
+        );
+    });
+
+    return button;
+};
+
+gpsControl.addTo(map);
+
 </script>
 
 </body>
