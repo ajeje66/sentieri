@@ -1,0 +1,19 @@
+{
+"type": "FeatureCollection",
+"name": "1",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{"type":"Feature","properties":{"fid":null,"tipo":"panorama","nome":"belvedere santa maria","descrizione":null},"geometry":{"type":"Point","coordinates":[15.228688663373111,40.413941903836005]}},
+{"type":"Feature","properties":{"fid":null,"tipo":"panorama","nome":"belvedere sabetta","descrizione":null},"geometry":{"type":"Point","coordinates":[15.229840065829491,40.416504476376097]}},
+{"type":"Feature","properties":{"fid":null,"tipo":"fiume","nome":"discesa mulino","descrizione":null},"geometry":{"type":"Point","coordinates":[15.239706220849886,40.425373685367184]}},
+{"type":"Feature","properties":{"fid":1,"tipo":"chiesa","nome":"santa maria","descrizione":"chiesa di santa maria del monte"},"geometry":{"type":"Point","coordinates":[15.228092234226169,40.413723926367574]}},
+{"type":"Feature","properties":{"fid":2,"tipo":"museo","nome":"museo civilta contadina","descrizione":null},"geometry":{"type":"Point","coordinates":[15.229795935421791,40.416328957709062]}},
+{"type":"Feature","properties":{"fid":3,"tipo":"murales","nome":"murales","descrizione":null},"geometry":null},
+{"type":"Feature","properties":{"fid":4,"tipo":"chiesa","nome":"chiesa madre","descrizione":null},"geometry":{"type":"Point","coordinates":[15.230215842937824,40.416695373821774]}},
+{"type":"Feature","properties":{"fid":5,"tipo":"chiesa","nome":"chiesa dei santi","descrizione":null},"geometry":{"type":"Point","coordinates":[15.227106989441342,40.41896073475219]}},
+{"type":"Feature","properties":{"fid":6,"tipo":"mulino","nome":"mulino del principe","descrizione":null},"geometry":{"type":"Point","coordinates":[15.239164954712619,40.425322199891575]}},
+{"type":"Feature","properties":{"fid":7,"tipo":"fontana","nome":"fontana di san lorenzo","descrizione":null},"geometry":{"type":"Point","coordinates":[15.226309967531936,40.420640364816315]}},
+{"type":"Feature","properties":{"fid":8,"tipo":"fontana","nome":"fontanelle","descrizione":null},"geometry":{"type":"Point","coordinates":[15.232135181353064,40.423127715070514]}},
+{"type":"Feature","properties":{"fid":9,"tipo":"chiesa","nome":"chiesa madonna della stella","descrizione":null},"geometry":{"type":"Point","coordinates":[15.235630844559777,40.421336421701959]}}
+]
+}
