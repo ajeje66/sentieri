@@ -1,0 +1,18 @@
+{
+"type": "FeatureCollection",
+"name": "punti2",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{"type":"Feature","properties":{"fid":1,"tipo":"chiesa","nome":"santa maria","descrizione":"chiesa di santa maria del monte"},"geometry":{"type":"Point","coordinates":[15.228092234226169,40.413723926367574]}},
+{"type":"Feature","properties":{"fid":2,"tipo":"museo","nome":"museo civilta contadina","descrizione":null},"geometry":{"type":"Point","coordinates":[15.229795935421791,40.416328957709062]}},
+{"type":"Feature","properties":{"fid":4,"tipo":"chiesa","nome":"chiesa madre","descrizione":null},"geometry":{"type":"Point","coordinates":[15.230215842937824,40.416695373821774]}},
+{"type":"Feature","properties":{"fid":5,"tipo":"fontana","nome":"fontana dei ciucci","descrizione":null},"geometry":{"type":"Point","coordinates":[15.230522415543081,40.415447018196865]}},
+{"type":"Feature","properties":{"fid":6,"tipo":"mulino","nome":"mulino del principe","descrizione":null},"geometry":{"type":"Point","coordinates":[15.239164954712619,40.425322199891575]}},
+{"type":"Feature","properties":{"fid":7,"tipo":"ponte","nome":"ponte di ferro","descrizione":null},"geometry":{"type":"Point","coordinates":[15.237382688018389,40.409139044460808]}},
+{"type":"Feature","properties":{"fid":10,"tipo":"panorama","nome":"belvedere santa maria","descrizione":null},"geometry":{"type":"Point","coordinates":[15.228664592241659,40.413960960148444]}},
+{"type":"Feature","properties":{"fid":11,"tipo":"panorama","nome":"belvedere capozzolo","descrizione":null},"geometry":{"type":"Point","coordinates":[15.22988018438202,40.416521526760945]}},
+{"type":"Feature","properties":{"fid":12,"tipo":"fiume","nome":"discesa vurvo","descrizione":null},"geometry":{"type":"Point","coordinates":[15.237623065012029,40.409386442201097]}},
+{"type":"Feature","properties":{"fid":13,"tipo":"fiume","nome":"discesca varca taverna","descrizione":null},"geometry":{"type":"Point","coordinates":[15.241410256366807,40.416361052550961]}},
+{"type":"Feature","properties":{"fid":14,"tipo":"fiume","nome":"discesa mulino","descrizione":null},"geometry":{"type":"Point","coordinates":[15.239819555760693,40.425211205229608]}}
+]
+}
